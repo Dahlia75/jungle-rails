@@ -2,6 +2,11 @@
 
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
+    <%if @product.quantity == 0 %>
+      <p class="sold_out">
+        <h2>SOLD OUT!</h2>
+      </p>
+    <%end%>
   </header>
 
   <article class="product-detail">
