@@ -132,5 +132,55 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## PRODUCTS
+
+puts "Finding or Creating Reviews ..."
+
+product1 = Product.find_or_create_by! name: 'Men\'s Classy shirt'
+product2 = Product.find_or_create_by! name: 'Women\'s Zebra pants'
+product3 = Product.find_or_create_by! name: 'Hipster Socks'
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+product1.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.sentence,
+  rating: 5
+})
+
+product1.reviews.create!({
+  user_id:  2,
+  description: Faker::Hipster.sentence,
+  rating: 4
+})
+
+
+product2.reviews.create!({
+  user_id:  2,
+  description: Faker::Hipster.sentence,
+  rating: 3
+})
+
+product2.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.sentence,
+  rating: 2
+})
+
+product3.reviews.create!({
+  user_id:  2,
+  description: Faker::Hipster.sentence,
+  rating: 5
+})
+
+product3.reviews.create!({
+  user_id:  1,
+  description: Faker::Hipster.sentence,
+  rating: 1
+})
 
 puts "DONE!"
